@@ -1,0 +1,20 @@
+POST http://localhost:3000/posts/1234
+Content-Type:application/json
+
+{
+    "title" :"My first post",
+    "postType" : "post",
+    "slug" : "my-first-post",
+    "status":"draft",
+    "content":"I presente to you my first post",
+    "schema": "{\r\n\"@context\": \"https://schema.org\",\r\n\"@type\": \"Person\",\r\n\"name\": \"John Doe\",\r\n\"jobTitle\": \"Software Developer\",\r\n\"affiliation\": {\r\n\"@type\": \"Organization\",\r\n\"name\": \"Acme Inc.\"\r\n},\r\n\"url\": \"https://johndoe.com\",\r\n\"sameAs\": [\r\n\"https://twitter.com/johndoe\",\r\n\"https://linkedin.com/in/johndoe\"\r\n]\r\n}",
+    "featuredImageUrl" : "http://localhot.com/images/iamge1.jpg",
+    "publishOn" : "2024-10-23T07:46:32+0000",
+    "tags" : ["nestjs", "typescript"],
+    "metaOption" : [
+        {
+            "key":"testKey",
+            "value":"20"
+        }
+    ]
+}
