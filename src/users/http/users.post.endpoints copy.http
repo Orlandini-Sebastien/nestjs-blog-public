@@ -2,8 +2,8 @@ POST http://localhost:3000/users
 Content-Type:application/json
 
 {
-    "firstName" :"John",
-    "lastName" : "Doe",
+    "firstName" :"Johnnn",
+    "lastName" : "Doeee",
     "email" : "dfgkn@coznef.com",
     "password" :"1234sdfibEF$dsd"
 }

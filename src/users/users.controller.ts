@@ -63,7 +63,7 @@ export class UsersController {
       'users controller POST / createUserDTO is not a CreateUserDTO type >>>',
       createUserDto instanceof CreateUserDto,
     );
-    return 'You set a post request to users endpoint';
+    return this.usersService.createUser(createUserDto);
   }
 
   @Patch()

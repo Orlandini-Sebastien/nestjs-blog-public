@@ -15,7 +15,7 @@ import {
 } from 'class-validator';
 import { postType } from '../enums/postType.enum';
 import { postStatus } from '../enums/status.enum';
-import { CreatePostMetaOptionSDto } from './create-post-meta-options.dto';
+import { CreatePostMetaOptionsDto } from '../../meta-options/dtos/create-post-meta-options.dto';
 import { Type } from 'class-transformer';
 
 export class CreatePostDto {
@@ -26,7 +26,7 @@ export class CreatePostDto {
   @IsString()
   @IsNotEmpty()
   @MinLength(4)
-  @MaxLength(96)
+  @MaxLength(512)
   title: string;
 
   @ApiProperty({
@@ -44,6 +44,7 @@ export class CreatePostDto {
   })
   @IsString()
   @IsNotEmpty()
+  @MaxLength(256)
   @Matches(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, {
     message: `A slug should be all small letters and use only '-' without spaces. For example: "my-url" `,
   })
@@ -74,6 +75,7 @@ export class CreatePostDto {
   })
   @IsJSON()
   @IsOptional()
+  @MaxLength(1024)
   schema?: string;
 
   @ApiPropertyOptional({
@@ -127,6 +129,6 @@ export class CreatePostDto {
   @IsOptional() // Les meta options peuvent être optionnelles
   @IsArray()
   @ValidateNested({ each: true })
-  @Type(() => CreatePostMetaOptionSDto)
-  metaOption?: CreatePostMetaOptionSDto[];
+  @Type(() => CreatePostMetaOptionsDto)
+  metaOption?: CreatePostMetaOptionsDto[];
 }

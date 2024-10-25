@@ -179,10 +179,12 @@
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
+                                    <span class="modifier"></span>
                                     <span class="modifier">Optional</span>
                                 <a href="#schema" >schema</a>
                             </li>
                             <li>
+                                    <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
@@ -263,7 +265,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/posts/dtos/create-post.dto.ts:67</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/posts/dtos/create-post.dto.ts:68</a></div>
                         </td>
                     </tr>
 
@@ -302,7 +304,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="85" class="link-to-prism">src/posts/dtos/create-post.dto.ts:85</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="87" class="link-to-prism">src/posts/dtos/create-post.dto.ts:87</a></div>
                         </td>
                     </tr>
 
@@ -343,7 +345,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="131" class="link-to-prism">src/posts/dtos/create-post.dto.ts:131</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="133" class="link-to-prism">src/posts/dtos/create-post.dto.ts:133</a></div>
                         </td>
                     </tr>
 
@@ -420,7 +422,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">src/posts/dtos/create-post.dto.ts:93</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="95" class="link-to-prism">src/posts/dtos/create-post.dto.ts:95</a></div>
                         </td>
                     </tr>
 
@@ -433,6 +435,7 @@
                 <td class="col-md-4">
                     <a name="schema"></a>
                     <span class="name">
+                            <span class="modifier"></span>
                             <span class="modifier"></span>
                             <span class="modifier"></span>
                             <span class="modifier"></span>
@@ -467,13 +470,13 @@
 &quot;https://twitter.com/johndoe&quot;,
 &quot;https://linkedin.com/in/johndoe&quot;
 ]
-}&#x27;})<br />@IsJSON()<br />@IsOptional()<br />
+}&#x27;})<br />@IsJSON()<br />@IsOptional()<br />@MaxLength(1024)<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="77" class="link-to-prism">src/posts/dtos/create-post.dto.ts:77</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="79" class="link-to-prism">src/posts/dtos/create-post.dto.ts:79</a></div>
                         </td>
                     </tr>
 
@@ -486,6 +489,7 @@
                 <td class="col-md-4">
                     <a name="slug"></a>
                     <span class="name">
+                            <span class="modifier"></span>
                             <span class="modifier"></span>
                             <span class="modifier"></span>
                             <span class="modifier"></span>
@@ -506,13 +510,13 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty({description: &#x27;Slug for the post URL&#x27;, example: &#x27;first-post&#x27;})<br />@IsString()<br />@IsNotEmpty()<br />@Matches(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, {message: A slug should be all small letters and use only &#x27;-&#x27; without spaces. For example: &quot;my-url&quot; })<br />
+                            @ApiProperty({description: &#x27;Slug for the post URL&#x27;, example: &#x27;first-post&#x27;})<br />@IsString()<br />@IsNotEmpty()<br />@MaxLength(256)<br />@Matches(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, {message: A slug should be all small letters and use only &#x27;-&#x27; without spaces. For example: &quot;my-url&quot; })<br />
                         </code>
                     </td>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="50" class="link-to-prism">src/posts/dtos/create-post.dto.ts:50</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/posts/dtos/create-post.dto.ts:51</a></div>
                         </td>
                     </tr>
 
@@ -550,7 +554,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="59" class="link-to-prism">src/posts/dtos/create-post.dto.ts:59</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="60" class="link-to-prism">src/posts/dtos/create-post.dto.ts:60</a></div>
                         </td>
                     </tr>
 
@@ -591,7 +595,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="103" class="link-to-prism">src/posts/dtos/create-post.dto.ts:103</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="105" class="link-to-prism">src/posts/dtos/create-post.dto.ts:105</a></div>
                         </td>
                     </tr>
 
@@ -625,7 +629,7 @@
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiProperty({description: &#x27;Give the title of your post&#x27;, example: &#x27;First post&#x27;})<br />@IsString()<br />@IsNotEmpty()<br />@MinLength(4)<br />@MaxLength(96)<br />
+                            @ApiProperty({description: &#x27;Give the title of your post&#x27;, example: &#x27;First post&#x27;})<br />@IsString()<br />@IsNotEmpty()<br />@MinLength(4)<br />@MaxLength(512)<br />
                         </code>
                     </td>
                 </tr>
@@ -678,7 +682,7 @@ export class CreatePostDto {
   @IsString()
   @IsNotEmpty()
   @MinLength(4)
-  @MaxLength(96)
+  @MaxLength(512)
   title: string;
 
   @ApiProperty({
@@ -696,6 +700,7 @@ export class CreatePostDto {
   })
   @IsString()
   @IsNotEmpty()
+  @MaxLength(256)
   @Matches(/^[a-z0-9]+(?:-[a-z0-9]+)*$/, {
     message: &#x60;A slug should be all small letters and use only &#x27;-&#x27; without spaces. For example: &quot;my-url&quot; &#x60;,
   })
@@ -726,6 +731,7 @@ export class CreatePostDto {
   })
   @IsJSON()
   @IsOptional()
+  @MaxLength(1024)
   schema?: string;
 
   @ApiPropertyOptional({
