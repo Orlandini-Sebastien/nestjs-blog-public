@@ -119,6 +119,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>AppService provides core application services, including a greeting message.</p>
+
+            </p>
 
 
 
@@ -176,19 +183,25 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="5"
-                                    class="link-to-prism">src/app.service.ts:5</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="12"
+                                    class="link-to-prism">src/app.service.ts:12</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Returns a greeting message.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p>A welcome message for the application.</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -201,8 +214,15 @@
     <div class="tab-pane fade  tab-source-code" id="source">
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Injectable } from &#x27;@nestjs/common&#x27;;
 
+/**
+ * AppService provides core application services, including a greeting message.
+ */
 @Injectable()
 export class AppService {
+  /**
+   * Returns a greeting message.
+   * @returns {string} A welcome message for the application.
+   */
   getHello(): string {
     return &#x27;Hello Nest!&#x27;;
   }

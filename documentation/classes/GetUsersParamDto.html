@@ -123,6 +123,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Data transfer object (DTO) for retrieving users based on specific parameters.
+Allows optional filtering by user ID when fetching user data.</p>
+
+            </p>
 
 
 
@@ -199,10 +207,17 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="13" class="link-to-prism">src/users/dtos/get-users-param.dto.ts:13</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="27" class="link-to-prism">src/users/dtos/get-users-param.dto.ts:27</a></div>
                         </td>
                     </tr>
 
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Optional parameter to fetch a user by a specific ID.
+If provided, only the user with this ID will be retrieved.</p>
+</div>
+                </td>
+            </tr>
 
         </tbody>
     </table>
@@ -222,7 +237,21 @@
 import { Type } from &#x27;class-transformer&#x27;;
 import { ApiPropertyOptional } from &#x27;@nestjs/swagger&#x27;;
 
+/**
+ * Data transfer object (DTO) for retrieving users based on specific parameters.
+ * Allows optional filtering by user ID when fetching user data.
+ *
+ * @export
+ * @class GetUsersParamDto
+ */
 export class GetUsersParamDto {
+  /**
+   * Optional parameter to fetch a user by a specific ID.
+   * If provided, only the user with this ID will be retrieved.
+   *
+   * @type {number}
+   * @memberof GetUsersParamDto
+   */
   @ApiPropertyOptional({
     description: &#x27;Get user with a specific id&#x27;,
     example: 1234,

@@ -7,8 +7,8 @@ import {
 } from 'typeorm';
 
 /**
- * Entité représentant une option Meta dans la base de données.
- * Cette entité est utilisée pour stocker des options au format JSON avec des champs de date de création et de mise à jour.
+ * Entity representing a Meta option in the database.
+ * This entity is used to store options in JSON format with creation and update date fields.
  *
  * @export
  * @class MetaOption
@@ -16,8 +16,8 @@ import {
 @Entity()
 export class MetaOption {
   /**
-   * Identifiant unique de l'option Meta.
-   * Généré automatiquement.
+   * Unique identifier for the Meta option.
+   * Automatically generated.
    *
    * @type {number}
    * @memberof MetaOption
@@ -26,8 +26,8 @@ export class MetaOption {
   id: number;
 
   /**
-   * Valeur de l'option Meta au format JSON.
-   * Cette colonne est obligatoire et doit être au format JSON.
+   * Value of the Meta option in JSON format.
+   * This column is required and must be in valid JSON format.
    *
    * @type {string}
    * @memberof MetaOption
@@ -39,8 +39,8 @@ export class MetaOption {
   metaValue: string;
 
   /**
-   * Date de création de l'option Meta.
-   * Gérée automatiquement par TypeORM.
+   * Creation date of the Meta option.
+   * Managed automatically by TypeORM.
    *
    * @type {Date}
    * @memberof MetaOption
@@ -49,8 +49,8 @@ export class MetaOption {
   createDate: Date;
 
   /**
-   * Date de mise à jour de l'option Meta.
-   * Gérée automatiquement par TypeORM.
+   * Update date of the Meta option.
+   * Managed automatically by TypeORM.
    *
    * @type {Date}
    * @memberof MetaOption

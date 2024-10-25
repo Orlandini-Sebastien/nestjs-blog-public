@@ -123,6 +123,13 @@
             </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>PostsController manages operations related to posts.</p>
+
+            </p>
 
 
 
@@ -148,6 +155,8 @@
                                 <a href="#createPost" >createPost</a>
                             </li>
                             <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier">Public</span>
                                 <a href="#getPosts" >getPosts</a>
@@ -208,14 +217,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="23"
-                                    class="link-to-prism">src/posts/posts.controller.ts:23</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="44"
+                                    class="link-to-prism">src/posts/posts.controller.ts:44</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Creates a new post for a specific user.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -226,6 +237,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -240,6 +252,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The ID of the user for whom the post is created.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>createPostDto</td>
@@ -252,6 +270,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The data transfer object containing post details.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -261,7 +285,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>The newly created post (this should eventually return the post from the service).</p>
+
                             </div>
                 </td>
             </tr>
@@ -273,6 +298,8 @@
                 <td class="col-md-4">
                     <a name="getPosts"></a>
                     <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
                             <span class="modifier"></span>
                             <span class="modifier">Public</span>
                         <span ><b>getPosts</b></span>
@@ -291,20 +318,22 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get(&#x27;/:userId?&#x27;)<br /></code>
+                    <code>@Get(&#x27;/:userId?&#x27;)<br />@ApiOperation({summary: &#x27;Obtains all the posts&#x27;})<br />@ApiResponse({status: 200, description: &#x27;The post has been successfully found&#x27;})<br /></code>
                 </td>
             </tr>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="13"
-                                    class="link-to-prism">src/posts/posts.controller.ts:13</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="27"
+                                    class="link-to-prism">src/posts/posts.controller.ts:27</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Retrieves all posts, optionally filtered by user ID.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -315,6 +344,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -329,6 +359,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The ID of the user whose posts are to be retrieved (optional).</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -338,7 +374,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>An array of posts for the specified user or all posts if no user ID is provided.</p>
+
                             </div>
                 </td>
             </tr>
@@ -376,14 +413,16 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="37"
-                                    class="link-to-prism">src/posts/posts.controller.ts:37</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="64"
+                                    class="link-to-prism">src/posts/posts.controller.ts:64</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Updates an existing post.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -394,6 +433,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -408,6 +448,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The data transfer object containing updated post details.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -417,7 +463,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>The updated post (this should eventually return the updated post from the service).</p>
+
                             </div>
                 </td>
             </tr>
@@ -433,16 +480,37 @@ import { ApiOperation, ApiResponse, ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { CreatePostDto } from &#x27;./dtos/create-post.dto&#x27;;
 import { PatchPostDto } from &#x27;./dtos/patch-post.dto&#x27;;
 
+/**
+ * PostsController manages operations related to posts.
+ */
 @Controller(&#x27;posts&#x27;)
 @ApiTags(&#x27;posts&#x27;)
 export class PostsController {
   constructor(private readonly postsService: PostsService) {}
 
+  /**
+   * Retrieves all posts, optionally filtered by user ID.
+   *
+   * @param userId - The ID of the user whose posts are to be retrieved (optional).
+   * @returns An array of posts for the specified user or all posts if no user ID is provided.
+   */
   @Get(&#x27;/:userId?&#x27;)
+  @ApiOperation({ summary: &#x27;Obtains all the posts&#x27; })
+  @ApiResponse({
+    status: 200,
+    description: &#x27;The post has been successfully found&#x27;,
+  })
   public getPosts(@Param(&#x27;userId&#x27;) userId: string) {
     return this.postsService.findAll(userId);
   }
 
+  /**
+   * Creates a new post for a specific user.
+   *
+   * @param userId - The ID of the user for whom the post is created.
+   * @param createPostDto - The data transfer object containing post details.
+   * @returns The newly created post (this should eventually return the post from the service).
+   */
   @Post(&#x27;/:userId&#x27;)
   @ApiOperation({ summary: &#x27;Creates a new post for a user&#x27; })
   @ApiResponse({
@@ -453,10 +521,16 @@ export class PostsController {
     @Param(&#x27;userId&#x27;) userId: string,
     @Body() createPostDto: CreatePostDto,
   ) {
-    // return this.postsService.createPost(userId, createPostDto);
+    // This would normally return the created post
     console.log(createPostDto);
   }
 
+  /**
+   * Updates an existing post.
+   *
+   * @param patchPostsDto - The data transfer object containing updated post details.
+   * @returns The updated post (this should eventually return the updated post from the service).
+   */
   @Patch()
   @ApiOperation({ summary: &#x27;Updates an existing post&#x27; })
   @ApiResponse({

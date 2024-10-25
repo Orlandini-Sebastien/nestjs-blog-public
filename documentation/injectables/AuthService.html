@@ -119,6 +119,13 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>AuthService handles authentication logic, including user login and authentication checks.</p>
+
+            </p>
 
 
 
@@ -166,7 +173,7 @@
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="5" class="link-to-prism">src/auth/providers/auth.service.ts:5</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="8" class="link-to-prism">src/auth/providers/auth.service.ts:8</a></div>
                             </td>
                         </tr>
 
@@ -231,19 +238,25 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="20"
-                                    class="link-to-prism">src/auth/providers/auth.service.ts:20</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="38"
+                                    class="link-to-prism">src/auth/providers/auth.service.ts:38</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Checks if the user is authenticated.</p>
+</div>
 
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/boolean" target="_blank" >boolean</a></code>
 
                         </div>
+                            <div class="io-description">
+                                <p>A boolean indicating whether the user is authenticated.</p>
+
+                            </div>
                 </td>
             </tr>
         </tbody>
@@ -270,14 +283,17 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="11"
-                                    class="link-to-prism">src/auth/providers/auth.service.ts:11</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="24"
+                                    class="link-to-prism">src/auth/providers/auth.service.ts:24</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
+                        <div class="io-description"><p>Logs in a user with the given email, password, and ID.
+Checks if the user exists in the database before proceeding.</p>
+</div>
 
                             <div class="io-description">
                                 <b>Parameters :</b>
@@ -288,6 +304,7 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
+                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
@@ -302,6 +319,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The email of the user attempting to log in.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>password</td>
@@ -314,6 +337,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The password provided by the user.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                         <tr>
                                                 <td>id</td>
@@ -326,6 +355,12 @@
                                             </td>
 
 
+                                            <td>
+                                                    <ul>
+<li>The ID of the user attempting to log in.</li>
+</ul>
+
+                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
@@ -335,7 +370,8 @@
 
                         </div>
                             <div class="io-description">
-                                
+                                <p>A sample token if the login is successful.</p>
+
                             </div>
                 </td>
             </tr>
@@ -350,22 +386,40 @@
         <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { forwardRef, Inject, Injectable } from &#x27;@nestjs/common&#x27;;
 import { UsersService } from &#x27;src/users/providers/users.service&#x27;;
 
+/**
+ * AuthService handles authentication logic, including user login and authentication checks.
+ */
 @Injectable()
 export class AuthService {
   constructor(
-    //injected
-    @Inject(forwardRef(()&#x3D;&gt;UsersService))
+    // Injects the UsersService using forward reference to resolve circular dependencies
+    @Inject(forwardRef(() &#x3D;&gt; UsersService))
     private readonly usersService: UsersService,
   ) {}
-  public login(email: string, password: string, id: string) {
-    // chek user exists datadase
-    const user &#x3D; this.usersService.findOnById(&#x27;1234&#x27;);
-    // login
 
-    // token
+  /**
+   * Logs in a user with the given email, password, and ID.
+   * Checks if the user exists in the database before proceeding.
+   *
+   * @param email - The email of the user attempting to log in.
+   * @param password - The password provided by the user.
+   * @param id - The ID of the user attempting to log in.
+   * @returns A sample token if the login is successful.
+   */
+  public login(email: string, password: string, id: string) {
+    // Check if the user exists in the database
+    const user &#x3D; this.usersService.findOnById(&#x27;1234&#x27;);
+    // Login logic would go here
+
+    // Return a sample token
     return &#x27;SAMPLE_TOKEN&#x27;;
   }
 
+  /**
+   * Checks if the user is authenticated.
+   *
+   * @returns A boolean indicating whether the user is authenticated.
+   */
   public isAuth() {
     return true;
   }

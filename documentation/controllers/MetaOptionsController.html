@@ -88,7 +88,7 @@
 
 <ol class="breadcrumb">
   <li class="breadcrumb-item">Controllers</li>
-  <li class="breadcrumb-item" >AppController</li>
+  <li class="breadcrumb-item" >MetaOptionsController</li>
 </ol>
 
 <ul class="nav nav-tabs" role="tablist">
@@ -112,16 +112,23 @@
             <h3>File</h3>
         </p>
         <p class="comment">
-            <code>src/app.controller.ts</code>
+            <code>src/meta-options/meta-options.controller.ts</code>
         </p>
 
+            <p class="comment">
+                <h3>Prefix</h3>
+            </p>
+            <p class="comment">
+                <code>meta-options</code>
+            </p>
 
 
             <p class="comment">
                 <h3>Description</h3>
             </p>
             <p class="comment">
-                <p>AppController handles incoming requests and responses for the application.</p>
+                <p>Controller for managing Meta options.
+This controller handles the endpoints for creating new Meta options.</p>
 
             </p>
 
@@ -143,7 +150,8 @@
                         <ul class="index-list">
                             <li>
                                     <span class="modifier"></span>
-                                <a href="#getHello" >getHello</a>
+                                    <span class="modifier">Public</span>
+                                <a href="#create" >create</a>
                             </li>
                         </ul>
                     </td>
@@ -166,18 +174,19 @@
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="getHello"></a>
+                    <a name="create"></a>
                     <span class="name">
                             <span class="modifier"></span>
-                        <span ><b>getHello</b></span>
-                        <a href="#getHello"><span class="icon ion-ios-link"></span></a>
+                            <span class="modifier">Public</span>
+                        <span ><b>create</b></span>
+                        <a href="#create"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getHello()</code>
+                    <code>create(createPostMetaOptionsDto: <a href="../classes/CreatePostMetaOptionsDto.html" target="_self">CreatePostMetaOptionsDto</a>)</code>
                 </td>
             </tr>
 
@@ -185,29 +194,64 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get()<br /></code>
+                    <code>@Post()<br /></code>
                 </td>
             </tr>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="16"
-                                    class="link-to-prism">src/app.controller.ts:16</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="32"
+                                    class="link-to-prism">src/meta-options/meta-options.controller.ts:32</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Handles GET requests to the root endpoint.</p>
+                        <div class="io-description"><p>Creates a new Meta option.
+HTTP POST endpoint to create a new Meta option with the provided data.</p>
 </div>
 
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                                <td>Description</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>createPostMetaOptionsDto</td>
+                                            <td>
+                                                            <code><a href="../classes/CreatePostMetaOptionsDto.html" target="_self" >CreatePostMetaOptionsDto</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                            <td>
+                                                    <ul>
+<li>The data for the new Meta option.</li>
+</ul>
+
+                                            </td>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                         </div>
                             <div class="io-description">
-                                <p>A greeting message provided by the AppService.</p>
+                                <p>The newly created Meta option.</p>
 
                             </div>
                 </td>
@@ -218,23 +262,39 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Controller, Get } from &#x27;@nestjs/common&#x27;;
-import { AppService } from &#x27;./app.service&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Post } from &#x27;@nestjs/common&#x27;;
+import { CreatePostMetaOptionsDto } from &#x27;./dtos/create-post-meta-options.dto&#x27;;
+import { MetaOptionsService } from &#x27;./providers/meta-options.service&#x27;;
+import { ApiTags } from &#x27;@nestjs/swagger&#x27;;
 
 /**
- * AppController handles incoming requests and responses for the application.
+ * Controller for managing Meta options.
+ * This controller handles the endpoints for creating new Meta options.
+ *
+ * @export
+ * @class MetaOptionsController
  */
-@Controller()
-export class AppController {
-  constructor(private readonly appService: AppService) {}
+@ApiTags(&#x27;meta-options&#x27;)
+@Controller(&#x27;meta-options&#x27;)
+export class MetaOptionsController {
+  /**
+   * Constructor for the &#x60;MetaOptionsController&#x60;.
+   *
+   * @param {MetaOptionsService} metaOptionsService - Injected service for managing Meta options.
+   */
+  constructor(private readonly metaOptionsService: MetaOptionsService) {}
 
   /**
-   * Handles GET requests to the root endpoint.
-   * @returns {string} A greeting message provided by the AppService.
+   * Creates a new Meta option.
+   * HTTP POST endpoint to create a new Meta option with the provided data.
+   *
+   * @param {CreatePostMetaOptionsDto} createPostMetaOptionsDto - The data for the new Meta option.
+   * @returns {Promise&lt;MetaOption&gt;} The newly created Meta option.
+   * @memberof MetaOptionsController
    */
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  @Post()
+  public create(@Body() createPostMetaOptionsDto: CreatePostMetaOptionsDto) {
+    return this.metaOptionsService.create(createPostMetaOptionsDto);
   }
 }
 </code></pre>
@@ -282,7 +342,7 @@ export class AppController {
        <script>
             var COMPODOC_CURRENT_PAGE_DEPTH = 1;
             var COMPODOC_CURRENT_PAGE_CONTEXT = 'controller';
-            var COMPODOC_CURRENT_PAGE_URL = 'AppController.html';
+            var COMPODOC_CURRENT_PAGE_URL = 'MetaOptionsController.html';
             var MAX_SEARCH_RESULTS = 15;
        </script>
 

@@ -4,11 +4,21 @@ import { ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import * as dotenv from 'dotenv';
 
+/**
+ * Main function to bootstrap the NestJS application.
+ * Sets up global configurations, pipes, and Swagger for API documentation.
+ */
 async function bootstrap() {
-  dotenv.config(); // Charge les variables d'environnement
+  dotenv.config(); // Loads environment variables from a .env file
+
+  // Create the NestJS application using the AppModule as the root module
   const app = await NestFactory.create(AppModule);
 
-  //Global Pipes
+  /**
+   * Configures global pipes for validation.
+   * @ValidationPipe ensures incoming request objects are validated and cleaned
+   * by whitelisting valid properties and forbidding unknown properties.
+   */
   app.useGlobalPipes(
     new ValidationPipe({
       whitelist: true,
@@ -16,25 +26,31 @@ async function bootstrap() {
       transform: true,
     }),
   );
-  // ------------------
 
-  //Swagger configuration
+  /**
+   * Swagger configuration for the API documentation.
+   * Sets up metadata including the API title, description, terms of service, and license.
+   * The documentation is accessible at the /api endpoint.
+   */
   const config = new DocumentBuilder()
-    .setTitle('NestJs - Blog app API')
-    .setDescription('Use the base API URL as http://localhost:3000')
-    .setTermsOfService('http://localhost:3000/terms-of-service')
+    .setTitle('NestJs - Blog app API') // API title for Swagger
+    .setDescription('Use the base API URL as http://localhost:3000') // API description
+    .setTermsOfService('http://localhost:3000/terms-of-service') // Terms of Service URL
     .setLicense(
       'MIT Licence',
       'https://github.com/git/git-scm.com/blob/main/MIT-LICENSE.txt',
-    )
-    .addServer('http://localhost:3000')
-    .setVersion('1.0')
+    ) // License details for the API
+    .addServer('http://localhost:3000') // Default server URL for Swagger
+    .setVersion('1.0') // API version
     .build();
-  // Instanciate Document
+
+  // Create Swagger document based on config and set up at /api endpoint
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api', app, document);
-  // ------------------
 
+  // Start the application, listening on the specified port or default to 3000
   await app.listen(process.env.PORT ?? 3000);
 }
+
+// Call the bootstrap function to launch the application
 bootstrap();

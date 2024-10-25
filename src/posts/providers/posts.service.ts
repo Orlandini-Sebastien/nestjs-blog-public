@@ -5,17 +5,26 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { Post } from '../post.entity';
 import { Repository } from 'typeorm';
 
+/**
+ * Service for handling posts-related operations.
+ */
 @Injectable()
 export class PostsService {
   constructor(
     private readonly usersService: UsersService,
 
     /**
-     * Injecting usersRepository
+     * Repository for managing Post entities.
      */
     @InjectRepository(Post)
     private postsRepository: Repository<Post>,
   ) {}
+
+  /**
+   * Retrieves all posts for a specific user.
+   * @param userId - The ID of the user whose posts are to be retrieved.
+   * @returns An array of posts with the user information.
+   */
   public findAll(userId: string) {
     const user = this.usersService.findOnById(userId);
     return [
@@ -31,6 +40,13 @@ export class PostsService {
       },
     ];
   }
+
+  /**
+   * Creates a new post for a specific user.
+   * @param userId - The ID of the user creating the post.
+   * @param createPostDto - The data transfer object containing post details.
+   * @returns An object representing the newly created post.
+   */
   public createPost(userId: string, createPostDto: CreatePostDto) {
     return {
       author: userId,

@@ -123,6 +123,14 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Data Transfer Object for updating an existing post.
+This class extends the CreatePostDto to allow partial updates of the post fields.</p>
+
+            </p>
 
             <p class="comment">
                 <h3>Extends</h3>
@@ -201,7 +209,7 @@
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="12" class="link-to-prism">src/posts/dtos/patch-post.dto.ts:12</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="16" class="link-to-prism">src/posts/dtos/patch-post.dto.ts:16</a></div>
                         </td>
                     </tr>
 
@@ -225,6 +233,10 @@ import { CreatePostDto } from &#x27;./create-post.dto&#x27;;
 import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
 import { IsInt, IsNotEmpty } from &#x27;class-validator&#x27;;
 
+/**
+ * Data Transfer Object for updating an existing post.
+ * This class extends the CreatePostDto to allow partial updates of the post fields.
+ */
 export class PatchPostDto extends PartialType(CreatePostDto) {
   @ApiProperty({
     description: &#x27;The ID of the post that needs to be updated&#x27;,

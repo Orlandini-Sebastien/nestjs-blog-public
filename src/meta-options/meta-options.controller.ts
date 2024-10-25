@@ -1,29 +1,31 @@
 import { Body, Controller, Post } from '@nestjs/common';
 import { CreatePostMetaOptionsDto } from './dtos/create-post-meta-options.dto';
 import { MetaOptionsService } from './providers/meta-options.service';
+import { ApiTags } from '@nestjs/swagger';
 
 /**
- * Contrôleur pour gérer les options Meta.
- * Ce contrôleur permet de gérer les points de terminaison pour créer de nouvelles options Meta.
+ * Controller for managing Meta options.
+ * This controller handles the endpoints for creating new Meta options.
  *
  * @export
  * @class MetaOptionsController
  */
+@ApiTags('meta-options')
 @Controller('meta-options')
 export class MetaOptionsController {
   /**
-   * Constructeur du contrôleur `MetaOptionsController`.
+   * Constructor for the `MetaOptionsController`.
    *
-   * @param {MetaOptionsService} metaOptionsService - Service injecté pour la gestion des options Meta.
+   * @param {MetaOptionsService} metaOptionsService - Injected service for managing Meta options.
    */
   constructor(private readonly metaOptionsService: MetaOptionsService) {}
 
   /**
-   * Crée une nouvelle option Meta.
-   * Point de terminaison HTTP POST pour créer une nouvelle option Meta avec les données fournies.
+   * Creates a new Meta option.
+   * HTTP POST endpoint to create a new Meta option with the provided data.
    *
-   * @param {CreatePostMetaOptionsDto} createPostMetaOptionsDto - Les données pour la nouvelle option Meta.
-   * @returns {Promise<MetaOption>} L'option Meta nouvellement créée.
+   * @param {CreatePostMetaOptionsDto} createPostMetaOptionsDto - The data for the new Meta option.
+   * @returns {Promise<MetaOption>} The newly created Meta option.
    * @memberof MetaOptionsController
    */
   @Post()

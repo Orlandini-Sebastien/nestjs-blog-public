@@ -123,6 +123,15 @@
         </p>
 
 
+            <p class="comment">
+                <h3>Description</h3>
+            </p>
+            <p class="comment">
+                <p>Data transfer object (DTO) for updating user properties.
+This class extends <code>CreateUserDto</code>, allowing partial updates on user fields.
+Intended for patch operations to update existing user information.</p>
+
+            </p>
 
             <p class="comment">
                 <h3>Extends</h3>
@@ -133,8 +142,89 @@
 
 
 
+            <section data-compodoc="block-index">
+    <h3 id="index">Index</h3>
+    <table class="table table-sm table-bordered index-table">
+        <tbody>
+                <tr>
+                    <td class="col-md-4">
+                        <h6><b>Properties</b></h6>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <ul class="index-list">
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                <a href="#id" >id</a>
+                            </li>
+                        </ul>
+                    </td>
+                </tr>
 
 
+
+
+
+
+        </tbody>
+    </table>
+</section>
+
+
+            <section data-compodoc="block-properties">
+    
+    <h3 id="inputs">
+        Properties
+    </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="id"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                        <span ><b>id</b></span>
+                        <a href="#id"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ApiProperty({description: &#x27;The ID of the user that needs to be updated&#x27;})<br />@IsInt()<br />@IsNotEmpty()<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="28" class="link-to-prism">src/users/dtos/patch-users.dto.ts:28</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Unique identifier for the user to be updated.
+Required for specifying which user should receive the updates.</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+</section>
 
 
 
@@ -146,11 +236,34 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { PartialType } from &quot;@nestjs/mapped-types&quot;;
-import { CreateUserDto } from &quot;./create-user.dto&quot;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { PartialType } from &#x27;@nestjs/mapped-types&#x27;;
+import { CreateUserDto } from &#x27;./create-user.dto&#x27;;
+import { ApiProperty } from &#x27;@nestjs/swagger&#x27;;
+import { IsInt, IsNotEmpty } from &#x27;class-validator&#x27;;
 
+/**
+ * Data transfer object (DTO) for updating user properties.
+ * This class extends &#x60;CreateUserDto&#x60;, allowing partial updates on user fields.
+ * Intended for patch operations to update existing user information.
+ *
+ * @export
+ * @class PatchUserDto
+ * @extends {PartialType(CreateUserDto)}
+ */
 export class PatchUserDto extends PartialType(CreateUserDto) {
-
+  /**
+   * Unique identifier for the user to be updated.
+   * Required for specifying which user should receive the updates.
+   *
+   * @type {number}
+   * @memberof PatchUserDto
+   */
+  @ApiProperty({
+    description: &#x27;The ID of the user that needs to be updated&#x27;,
+  })
+  @IsInt()
+  @IsNotEmpty()
+  id: number;
 }
 </code></pre>
     </div>
