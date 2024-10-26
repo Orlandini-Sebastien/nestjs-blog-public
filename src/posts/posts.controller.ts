@@ -1,6 +1,16 @@
-import { Body, Controller, Get, Param, Patch, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  ParseIntPipe,
+  Patch,
+  Post,
+  Query,
+} from '@nestjs/common';
 import { PostsService } from './providers/posts.service';
-import { ApiOperation, ApiResponse, ApiTags } from '@nestjs/swagger';
+import { ApiOperation, ApiQuery, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CreatePostDto } from './dtos/create-post.dto';
 import { PatchPostDto } from './dtos/patch-post.dto';
 
@@ -24,7 +34,7 @@ export class PostsController {
     status: 200,
     description: 'The post has been successfully found',
   })
-  public getPosts(@Param('userId') userId: string) {
+  public getPosts(@Param('userId', ParseIntPipe) userId: number) {
     return this.postsService.findAll(userId);
   }
 
@@ -45,8 +55,7 @@ export class PostsController {
     @Param('userId') userId: string,
     @Body() createPostDto: CreatePostDto,
   ) {
-    // This would normally return the created post
-    console.log(createPostDto);
+    return this.postsService.create(createPostDto);
   }
 
   /**
@@ -63,5 +72,22 @@ export class PostsController {
   })
   public updatePost(@Body() patchPostsDto: PatchPostDto) {
     console.log(patchPostsDto);
+  }
+
+  @ApiOperation({ summary: 'Deletes an existing post' })
+  @ApiResponse({
+    status: 200,
+    description: 'The post has been successfully deleted',
+  })
+  @ApiQuery({
+    name: 'id',
+    type: 'number',
+    required: true,
+    description: 'The id of entries you want to delete',
+    example: 10,
+  })
+  @Delete()
+  public deletePost(@Query('id', ParseIntPipe) id: number) {
+    return this.postsService.delete(id);
   }
 }

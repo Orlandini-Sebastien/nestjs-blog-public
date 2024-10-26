@@ -2,6 +2,7 @@ import { ApiPropertyOptional, ApiProperty } from '@nestjs/swagger';
 import {
   IsArray,
   IsEnum,
+  IsInt,
   IsISO8601,
   IsJSON,
   IsNotEmpty,
@@ -167,5 +168,17 @@ export class CreatePostDto {
   @IsOptional() // Meta options can be optional
   @ValidateNested({ each: true })
   @Type(() => CreatePostMetaOptionsDto)
-  metaOption?: CreatePostMetaOptionsDto | null;
+  metaOptions?: CreatePostMetaOptionsDto | null;
+
+  /**
+   * Each post must have one author
+   */
+  @ApiProperty({
+    type: 'integer',
+    required: true,
+    example: 1,
+  })
+  @IsNotEmpty()
+  @IsInt()
+  authorId: number;
 }

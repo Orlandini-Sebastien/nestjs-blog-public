@@ -21,9 +21,9 @@ export class AuthService {
    * @param id - The ID of the user attempting to log in.
    * @returns A sample token if the login is successful.
    */
-  public login(email: string, password: string, id: string) {
+  public login(email: string, password: string, id: number) {
     // Check if the user exists in the database
-    const user = this.usersService.findOnById('1234');
+    const user = this.usersService.findOnById(1234);
     // Login logic would go here
 
     // Return a sample token

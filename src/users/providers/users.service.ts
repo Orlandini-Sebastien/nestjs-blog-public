@@ -64,23 +64,12 @@ export class UsersService {
 
   /**
    * Retrieves a user by their ID.
-   * This method simulates searching for a user in a database by their ID.
    *
-   * @param {string} id - The ID of the user to retrieve.
+   * @param {number} id - The ID of the user to retrieve.
    * @returns {Array<Object>} An array containing a user object with id, first name, and email.
    */
-
-  public findOnById(
-    id: string,
-  ): Array<{ id: number; firstName: string; email: string }> {
-    // Return a mock user with id, first name, and email.
-    return [
-      {
-        id: 1234,
-        firstName: 'Alice',
-        email: 'alice@doe.com',
-      },
-    ];
+  public async findOnById(id: number) {
+    return await this.usersRepository.findOneBy({ id });
   }
 
   public async createUser(createUserDTO: CreateUserDto) {

@@ -1,4 +1,5 @@
-import { Column, Entity, PrimaryGeneratedColumn } from 'typeorm';
+import { Post } from 'src/posts/post.entity';
+import { Column, Entity, OneToMany, PrimaryGeneratedColumn } from 'typeorm';
 
 /**
  * Represents a user entity in the application.
@@ -77,4 +78,11 @@ export class User {
     nullable: false,
   })
   password: string;
+
+  /**
+   * Make a one-to-many relation with post
+   * One author can have multiple post
+   */
+  @OneToMany(() => Post, (post) => post.author)
+  posts: Post[];
 }

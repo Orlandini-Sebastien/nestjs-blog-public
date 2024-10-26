@@ -1,4 +1,4 @@
-import { ApiPropertyOptional } from '@nestjs/swagger';
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 import {
   IsEmail,
   IsNotEmpty,
@@ -24,7 +24,7 @@ export class CreateUserDto {
    * @type {string}
    * @memberof CreateUserDto
    */
-  @ApiPropertyOptional({
+  @ApiProperty({
     description: 'First name of the user, required field.',
     example: 'John',
   })
@@ -41,7 +41,7 @@ export class CreateUserDto {
    * @type {string}
    * @memberof CreateUserDto
    */
-  @ApiPropertyOptional({
+  @ApiProperty({
     description: 'Last name of the user, optional field.',
     example: 'Doe',
   })
@@ -58,7 +58,7 @@ export class CreateUserDto {
    * @type {string}
    * @memberof CreateUserDto
    */
-  @ApiPropertyOptional({
+  @ApiProperty({
     description:
       'Email address of the user, required field and must be in valid email format.',
     example: 'john.doe@example.com',
@@ -74,7 +74,7 @@ export class CreateUserDto {
    * @type {string}
    * @memberof CreateUserDto
    */
-  @ApiPropertyOptional({
+  @ApiProperty({
     description:
       'Password for the user account, must be at least 11 characters, include one letter, one number, and one special character.',
     example: 'Password@123',

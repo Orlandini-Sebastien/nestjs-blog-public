@@ -4,10 +4,12 @@ import {
   Column,
   OneToOne,
   JoinColumn,
+  ManyToOne,
 } from 'typeorm';
 import { postType } from './enums/postType.enum';
 import { postStatus } from './enums/status.enum';
 import { MetaOption } from 'src/meta-options/meta-option.entity';
+import { User } from 'src/users/user.entity';
 
 /**
  * Represents a blog post.
@@ -79,15 +81,25 @@ export class Post {
   publishOn?: Date;
 
   /**
+   * The meta options associated with the post.
+   */
+  @OneToOne(() => MetaOption, (metaOption) => metaOption.post, {
+    cascade: true,
+    eager: true,
+  })
+  metaOption?: MetaOption;
+
+  /**
+   * One Post can have one author
+   */
+  @ManyToOne(() => User, (user) => user.posts, {
+    eager: true,
+  })
+  author: User;
+
+  /**
    * An array of tags associated with the post.
    */
   @Column('simple-array', { nullable: true })
   tags?: string[];
-
-  /**
-   * The meta options associated with the post.
-   */
-  @OneToOne(() => MetaOption)
-  @JoinColumn()
-  metaOption?: MetaOption;
 }
