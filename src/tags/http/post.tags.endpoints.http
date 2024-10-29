@@ -1,0 +1,10 @@
+POST http://localhost:3000/tags
+Content-Type: application/json
+
+{
+    "name": "css",
+    "slug": "css",
+    "description": "css",
+    "schema": "{\"@context\": \"https://schema.org\", \"@type\": \"Person\", \"name\": \"John Doe\", \"jobTitle\": \"Software Developer\", \"affiliation\": {\"@type\": \"Organization\", \"name\": \"Acme Inc.\"}, \"url\": \"https://johndoe.com\", \"sameAs\": [\"https://twitter.com/johndoe\", \"https://linkedin.com/in/johndoe\"]}",
+    "featuredImageUrl": "http://localhost.com/images/image1.jpg"
+}

@@ -5,11 +5,14 @@ import {
   OneToOne,
   JoinColumn,
   ManyToOne,
+  ManyToMany,
+  JoinTable,
 } from 'typeorm';
 import { postType } from './enums/postType.enum';
 import { postStatus } from './enums/status.enum';
 import { MetaOption } from 'src/meta-options/meta-option.entity';
 import { User } from 'src/users/user.entity';
+import { Tag } from 'src/tags/tag.entity';
 
 /**
  * Represents a blog post.
@@ -100,6 +103,9 @@ export class Post {
   /**
    * An array of tags associated with the post.
    */
-  @Column('simple-array', { nullable: true })
-  tags?: string[];
+  @ManyToMany(() => Tag, (tag) => tag.posts, {
+    eager: true,
+  })
+  @JoinTable()
+  tags?: Tag[];
 }

@@ -133,17 +133,16 @@ export class CreatePostDto {
 
   /**
    * An array of tags related to the post.
-   * Each tag must be a string, can be optional, and must have a minimum length of 3 characters.
+   * Each tag must be a number, can be optional.
    */
   @ApiPropertyOptional({
-    description: 'Tags related to the post',
-    example: ['nestjs', 'swagger'],
+    description: 'Array of ids of tags',
+    example: [1, 2],
   })
-  @IsArray()
-  @IsString({ each: true }) // Each element of the array must be a string
   @IsOptional() // Tags can be optional
-  @MinLength(3, { each: true })
-  tags?: string[];
+  @IsArray()
+  @IsInt({ each: true }) // Each element of the array must be a string
+  tags?: number[];
 
   /**
    * Additional meta options for the post.

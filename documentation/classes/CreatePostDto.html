@@ -151,6 +151,12 @@ This class defines the structure of data required to create a post.</p>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
+                                <a href="#authorId" >authorId</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
                                     <span class="modifier">Optional</span>
                                 <a href="#content" >content</a>
                             </li>
@@ -167,7 +173,7 @@ This class defines the structure of data required to create a post.</p>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier">Optional</span>
-                                <a href="#metaOption" >metaOption</a>
+                                <a href="#metaOptions" >metaOptions</a>
                             </li>
                             <li>
                                     <span class="modifier"></span>
@@ -209,7 +215,6 @@ This class defines the structure of data required to create a post.</p>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
-                                    <span class="modifier"></span>
                                     <span class="modifier">Optional</span>
                                 <a href="#tags" >tags</a>
                             </li>
@@ -244,6 +249,50 @@ This class defines the structure of data required to create a post.</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
+                    <a name="authorId"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                        <span ><b>authorId</b></span>
+                        <a href="#authorId"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+
+                    </td>
+                </tr>
+                <tr>
+                    <td class="col-md-4">
+                        <b>Decorators : </b>
+                        <br />
+                        <code>
+                            @ApiProperty({type: &#x27;integer&#x27;, required: true, example: 1})<br />@IsNotEmpty()<br />@IsInt()<br />
+                        </code>
+                    </td>
+                </tr>
+                    <tr>
+                        <td class="col-md-4">
+                                <div class="io-line">Defined in <a href="" data-line="182" class="link-to-prism">src/posts/dtos/create-post.dto.ts:182</a></div>
+                        </td>
+                    </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <div class="io-description"><p>Each post must have one author</p>
+</div>
+                </td>
+            </tr>
+
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
                     <a name="content"></a>
                     <span class="name">
                             <span class="modifier"></span>
@@ -272,7 +321,7 @@ This class defines the structure of data required to create a post.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="92" class="link-to-prism">src/posts/dtos/create-post.dto.ts:92</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="93" class="link-to-prism">src/posts/dtos/create-post.dto.ts:93</a></div>
                         </td>
                     </tr>
 
@@ -318,7 +367,7 @@ Optional field that can contain any string.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="119" class="link-to-prism">src/posts/dtos/create-post.dto.ts:119</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="120" class="link-to-prism">src/posts/dtos/create-post.dto.ts:120</a></div>
                         </td>
                     </tr>
 
@@ -336,15 +385,15 @@ Must be a valid URL and is optional.</p>
         <tbody>
             <tr>
                 <td class="col-md-4">
-                    <a name="metaOption"></a>
+                    <a name="metaOptions"></a>
                     <span class="name">
                             <span class="modifier"></span>
                             <span class="modifier"></span>
                             <span class="modifier"></span>
                             <span class="modifier"></span>
                             <span class="modifier">Optional</span>
-                        <span ><b>metaOption</b></span>
-                        <a href="#metaOption"><span class="icon ion-ios-link"></span></a>
+                        <span ><b>metaOptions</b></span>
+                        <a href="#metaOptions"><span class="icon ion-ios-link"></span></a>
                     </span>
                 </td>
             </tr>
@@ -410,7 +459,7 @@ This field is optional and may contain complex nested objects.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="51" class="link-to-prism">src/posts/dtos/create-post.dto.ts:51</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="52" class="link-to-prism">src/posts/dtos/create-post.dto.ts:52</a></div>
                         </td>
                     </tr>
 
@@ -441,7 +490,7 @@ Must be an enum value from postType, cannot be empty.</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                        <i>Type : </i>        <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date" target="_blank" >Date</a></code>
 
                     </td>
                 </tr>
@@ -456,7 +505,7 @@ Must be an enum value from postType, cannot be empty.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="131" class="link-to-prism">src/posts/dtos/create-post.dto.ts:131</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="132" class="link-to-prism">src/posts/dtos/create-post.dto.ts:132</a></div>
                         </td>
                     </tr>
 
@@ -517,7 +566,7 @@ Must be a valid ISO 8601 date string and is optional.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="107" class="link-to-prism">src/posts/dtos/create-post.dto.ts:107</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="108" class="link-to-prism">src/posts/dtos/create-post.dto.ts:108</a></div>
                         </td>
                     </tr>
 
@@ -564,7 +613,7 @@ Must be a valid JSON string and is optional.</p>
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="67" class="link-to-prism">src/posts/dtos/create-post.dto.ts:67</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="68" class="link-to-prism">src/posts/dtos/create-post.dto.ts:68</a></div>
                         </td>
                     </tr>
 
@@ -609,7 +658,7 @@ Must be a string, cannot be empty, and must match the specified regex pattern.</
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="80" class="link-to-prism">src/posts/dtos/create-post.dto.ts:80</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="81" class="link-to-prism">src/posts/dtos/create-post.dto.ts:81</a></div>
                         </td>
                     </tr>
 
@@ -633,7 +682,6 @@ Must be an enum value from postStatus and cannot be empty.</p>
                             <span class="modifier"></span>
                             <span class="modifier"></span>
                             <span class="modifier"></span>
-                            <span class="modifier"></span>
                             <span class="modifier">Optional</span>
                         <span ><b>tags</b></span>
                         <a href="#tags"><span class="icon ion-ios-link"></span></a>
@@ -642,7 +690,7 @@ Must be an enum value from postStatus and cannot be empty.</p>
             </tr>
                 <tr>
                     <td class="col-md-4">
-                        <i>Type : </i>    <code>string[]</code>
+                        <i>Type : </i>    <code>number[]</code>
 
                     </td>
                 </tr>
@@ -651,7 +699,7 @@ Must be an enum value from postStatus and cannot be empty.</p>
                         <b>Decorators : </b>
                         <br />
                         <code>
-                            @ApiPropertyOptional({description: &#x27;Tags related to the post&#x27;, example: undefined})<br />@IsArray()<br />@IsString({each: true})<br />@IsOptional()<br />@MinLength(3, {each: true})<br />
+                            @ApiPropertyOptional({description: &#x27;Array of ids of tags&#x27;, example: undefined})<br />@IsOptional()<br />@IsArray()<br />@IsInt({each: true})<br />
                         </code>
                     </td>
                 </tr>
@@ -664,7 +712,7 @@ Must be an enum value from postStatus and cannot be empty.</p>
             <tr>
                 <td class="col-md-4">
                     <div class="io-description"><p>An array of tags related to the post.
-Each tag must be a string, can be optional, and must have a minimum length of 3 characters.</p>
+Each tag must be a number, can be optional.</p>
 </div>
                 </td>
             </tr>
@@ -704,7 +752,7 @@ Each tag must be a string, can be optional, and must have a minimum length of 3 
                 </tr>
                     <tr>
                         <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="38" class="link-to-prism">src/posts/dtos/create-post.dto.ts:38</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="39" class="link-to-prism">src/posts/dtos/create-post.dto.ts:39</a></div>
                         </td>
                     </tr>
 
@@ -734,6 +782,7 @@ Must be a string, cannot be empty, and must be between 4 and 512 characters long
 import {
   IsArray,
   IsEnum,
+  IsInt,
   IsISO8601,
   IsJSON,
   IsNotEmpty,
@@ -860,21 +909,20 @@ export class CreatePostDto {
   })
   @IsISO8601()
   @IsOptional()
-  publishOn?: string;
+  publishOn?: Date;
 
   /**
    * An array of tags related to the post.
-   * Each tag must be a string, can be optional, and must have a minimum length of 3 characters.
+   * Each tag must be a number, can be optional.
    */
   @ApiPropertyOptional({
-    description: &#x27;Tags related to the post&#x27;,
-    example: [&#x27;nestjs&#x27;, &#x27;swagger&#x27;],
+    description: &#x27;Array of ids of tags&#x27;,
+    example: [1, 2],
   })
-  @IsArray()
-  @IsString({ each: true }) // Each element of the array must be a string
   @IsOptional() // Tags can be optional
-  @MinLength(3, { each: true })
-  tags?: string[];
+  @IsArray()
+  @IsInt({ each: true }) // Each element of the array must be a string
+  tags?: number[];
 
   /**
    * Additional meta options for the post.
@@ -899,7 +947,19 @@ export class CreatePostDto {
   @IsOptional() // Meta options can be optional
   @ValidateNested({ each: true })
   @Type(() &#x3D;&gt; CreatePostMetaOptionsDto)
-  metaOption?: CreatePostMetaOptionsDto | null;
+  metaOptions?: CreatePostMetaOptionsDto | null;
+
+  /**
+   * Each post must have one author
+   */
+  @ApiProperty({
+    type: &#x27;integer&#x27;,
+    required: true,
+    example: 1,
+  })
+  @IsNotEmpty()
+  @IsInt()
+  authorId: number;
 }
 </code></pre>
     </div>

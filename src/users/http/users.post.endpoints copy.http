@@ -2,8 +2,28 @@ POST http://localhost:3000/users
 Content-Type:application/json
 
 {
-    "firstName" :"Johnnn",
+    "firstName" :"Mark",
     "lastName" : "Doeee",
-    "email" : "dfgkn@coznef.com",
+    "email" : "mark@coznef.com",
     "password" :"1234sdfibEF$dsd"
+}
+
+POST http://localhost:3000/users/create-many
+Content-Type:application/json
+
+{
+    "users" : [
+        {
+            "firstName" :"Johnnnnnnn",
+            "lastName" : "Doe",
+            "email" : "dn@coznef.com",
+            "password" :"1234sdfibEF$dsd"
+        },
+        {
+            "firstName" :"Johnnn",
+            "lastName" : "Doee",
+            "email" : "dfgkn@cef.com",
+            "password" :"1234sdfibEF$dsd"
+        }   
+    ]
 }

@@ -13,6 +13,7 @@ import { PostsService } from './providers/posts.service';
 import { ApiOperation, ApiQuery, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CreatePostDto } from './dtos/create-post.dto';
 import { PatchPostDto } from './dtos/patch-post.dto';
+import { GetPostsDto } from './dtos/get-posts.dto';
 
 /**
  * PostsController manages operations related to posts.
@@ -34,8 +35,13 @@ export class PostsController {
     status: 200,
     description: 'The post has been successfully found',
   })
-  public getPosts(@Param('userId', ParseIntPipe) userId: number) {
-    return this.postsService.findAll(userId);
+  public getPosts(
+    @Param('userId') userId: string,
+    @Query() postQuery: GetPostsDto,
+  ) {
+    console.log(postQuery);
+
+    return this.postsService.findAll(postQuery, userId);
   }
 
   /**
@@ -70,8 +76,8 @@ export class PostsController {
     status: 200,
     description: 'The post has been successfully updated',
   })
-  public updatePost(@Body() patchPostsDto: PatchPostDto) {
-    console.log(patchPostsDto);
+  public updatePost(@Body() patchPostDto: PatchPostDto) {
+    return this.postsService.update(patchPostDto);
   }
 
   @ApiOperation({ summary: 'Deletes an existing post' })

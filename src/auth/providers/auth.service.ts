@@ -1,5 +1,7 @@
 import { forwardRef, Inject, Injectable } from '@nestjs/common';
 import { UsersService } from 'src/users/providers/users.service';
+import { SignInDto } from '../dtos/signin.dto';
+import { SignInProvider } from './sign-in.provider';
 
 /**
  * AuthService handles authentication logic, including user login and authentication checks.
@@ -7,9 +9,16 @@ import { UsersService } from 'src/users/providers/users.service';
 @Injectable()
 export class AuthService {
   constructor(
-    // Injects the UsersService using forward reference to resolve circular dependencies
+    /**
+     * Injects the UsersService using forward reference to resolve circular dependencies
+     */
+
     @Inject(forwardRef(() => UsersService))
     private readonly usersService: UsersService,
+    /**
+     * Inject signInProvider
+     */
+    private readonly signInProvider: SignInProvider,
   ) {}
 
   /**
@@ -21,13 +30,8 @@ export class AuthService {
    * @param id - The ID of the user attempting to log in.
    * @returns A sample token if the login is successful.
    */
-  public login(email: string, password: string, id: number) {
-    // Check if the user exists in the database
-    const user = this.usersService.findOnById(1234);
-    // Login logic would go here
-
-    // Return a sample token
-    return 'SAMPLE_TOKEN';
+  public async signIn(signInDto: SignInDto) {
+    return await this.signInProvider.signIn(signInDto);
   }
 
   /**

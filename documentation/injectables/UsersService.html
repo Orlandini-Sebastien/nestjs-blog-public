@@ -145,6 +145,11 @@
                             <li>
                                     <span class="modifier">Public</span>
                                     <span class="modifier">Async</span>
+                                <a href="#createMany" >createMany</a>
+                            </li>
+                            <li>
+                                    <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
                                 <a href="#createUser" >createUser</a>
                             </li>
                             <li>
@@ -153,6 +158,7 @@
                             </li>
                             <li>
                                     <span class="modifier">Public</span>
+                                    <span class="modifier">Async</span>
                                 <a href="#findOnById" >findOnById</a>
                             </li>
                         </ul>
@@ -173,12 +179,12 @@
             <tbody>
                 <tr>
                     <td class="col-md-4">
-<code>constructor(authService: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, usersRepository: <a href="../entitys/User.html" target="_self">Repository&lt;User&gt;</a>)</code>
+<code>constructor(authService: <a href="../injectables/AuthService.html" target="_self">AuthService</a>, usersRepository: <a href="../entitys/User.html" target="_self">Repository&lt;User&gt;</a>, profileConfiguration: ConfigType<>, dataSource: DataSource)</code>
                     </td>
                 </tr>
                         <tr>
                             <td class="col-md-4">
-                                <div class="io-line">Defined in <a href="" data-line="14" class="link-to-prism">src/users/providers/users.service.ts:14</a></div>
+                                <div class="io-line">Defined in <a href="" data-line="22" class="link-to-prism">src/users/providers/users.service.ts:22</a></div>
                             </td>
                         </tr>
 
@@ -232,6 +238,34 @@ to prevent circular dependencies.</p>
                                                         <td>
                                                         </td>
                                                 </tr>
+                                                <tr>
+                                                        <td>profileConfiguration</td>
+                                                  
+                                                        <td>
+                                                                    <code>ConfigType&lt;&gt;</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                        </td>
+                                                </tr>
+                                                <tr>
+                                                        <td>dataSource</td>
+                                                  
+                                                        <td>
+                                                                    <code>DataSource</code>
+                                                        </td>
+                                                  
+                                                    <td>
+                                                            No
+                                                    </td>
+                                                    
+                                                        <td>
+                                                        </td>
+                                                </tr>
                                         </tbody>
                                     </table>
                             </div>
@@ -246,6 +280,76 @@ to prevent circular dependencies.</p>
     <h3 id="methods">
         Methods
     </h3>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="createMany"></a>
+                    <span class="name">
+                            <span class="modifier">Public</span>
+                            <span class="modifier">Async</span>
+                        <span ><b>createMany</b></span>
+                        <a href="#createMany"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>createMany(createUsersDTO: <a href="../classes/CreateUserDto.html" target="_self">CreateUserDto[]</a>)</code>
+                </td>
+            </tr>
+
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="158"
+                                    class="link-to-prism">src/users/providers/users.service.ts:158</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>createUsersDTO</td>
+                                            <td>
+                                                            <code><a href="../classes/CreateUserDto.html" target="_self" >CreateUserDto[]</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
     <table class="table table-sm table-bordered">
         <tbody>
             <tr>
@@ -269,8 +373,8 @@ to prevent circular dependencies.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="86"
-                                    class="link-to-prism">src/users/providers/users.service.ts:86</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="115"
+                                    class="link-to-prism">src/users/providers/users.service.ts:115</a></div>
                         </td>
                     </tr>
 
@@ -338,8 +442,8 @@ to prevent circular dependencies.</p>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="43"
-                                    class="link-to-prism">src/users/providers/users.service.ts:43</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="62"
+                                    class="link-to-prism">src/users/providers/users.service.ts:62</a></div>
                         </td>
                     </tr>
 
@@ -439,6 +543,7 @@ This method simulates a connection to a database and returns a mock list of user
                     <a name="findOnById"></a>
                     <span class="name">
                             <span class="modifier">Public</span>
+                            <span class="modifier">Async</span>
                         <span ><b>findOnById</b></span>
                         <a href="#findOnById"><span class="icon ion-ios-link"></span></a>
                     </span>
@@ -447,23 +552,22 @@ This method simulates a connection to a database and returns a mock list of user
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>findOnById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>findOnById(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
                 </td>
             </tr>
 
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="73"
-                                    class="link-to-prism">src/users/providers/users.service.ts:73</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="93"
+                                    class="link-to-prism">src/users/providers/users.service.ts:93</a></div>
                         </td>
                     </tr>
 
 
             <tr>
                 <td class="col-md-4">
-                        <div class="io-description"><p>Retrieves a user by their ID.
-This method simulates searching for a user in a database by their ID.</p>
+                        <div class="io-description"><p>Retrieves a user by their ID.</p>
 </div>
 
                             <div class="io-description">
@@ -482,7 +586,7 @@ This method simulates searching for a user in a database by their ID.</p>
                                         <tr>
                                                 <td>id</td>
                                             <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
                                             </td>
 
                                             <td>
@@ -501,7 +605,7 @@ This method simulates searching for a user in a database by their ID.</p>
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>    <code>Array&lt;literal type&gt;</code>
+                            <b>Returns : </b>    <code>unknown</code>
 
                         </div>
                             <div class="io-description">
@@ -518,13 +622,21 @@ This method simulates searching for a user in a database by their ID.</p>
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { forwardRef, Inject, Injectable } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  BadRequestException,
+  forwardRef,
+  Inject,
+  Injectable,
+  RequestTimeoutException,
+} from &#x27;@nestjs/common&#x27;;
 import { GetUsersParamDto } from &#x27;../dtos/get-users-param.dto&#x27;;
 import { AuthService } from &#x27;src/auth/providers/auth.service&#x27;;
-import { Repository } from &#x27;typeorm&#x27;;
+import { DataSource, Repository } from &#x27;typeorm&#x27;;
 import { User } from &#x27;../user.entity&#x27;;
 import { InjectRepository } from &#x27;@nestjs/typeorm&#x27;;
 import { CreateUserDto } from &#x27;../dtos/create-user.dto&#x27;;
+import { ConfigService, ConfigType } from &#x27;@nestjs/config&#x27;;
+import profileConfig from &#x27;../config/profile.config&#x27;;
 
 /**
  * Service responsible for handling business operations related to users.
@@ -547,7 +659,18 @@ export class UsersService {
      * Injecting usersRepository
      */
     @InjectRepository(User)
-    private usersRepository: Repository&lt;User&gt;,
+    private readonly usersRepository: Repository&lt;User&gt;,
+
+    /**
+     * Env
+     */
+    @Inject(profileConfig.KEY)
+    private readonly profileConfiguration: ConfigType&lt;typeof profileConfig&gt;,
+
+    /**
+     * Inject datasource
+     */
+    private readonly dataSource: DataSource,
   ) {}
 
   /**
@@ -569,6 +692,9 @@ export class UsersService {
     const isAuth &#x3D; this.authService.isAuth();
     console.log(&#x27;user.service &gt;&gt;&gt;&#x27;, isAuth);
 
+    //test
+    console.log(this.profileConfiguration);
+
     // Return a mock list of users.
     return [
       {
@@ -584,37 +710,101 @@ export class UsersService {
 
   /**
    * Retrieves a user by their ID.
-   * This method simulates searching for a user in a database by their ID.
    *
-   * @param {string} id - The ID of the user to retrieve.
+   * @param {number} id - The ID of the user to retrieve.
    * @returns {Array&lt;Object&gt;} An array containing a user object with id, first name, and email.
    */
+  public async findOnById(id: number) {
+    let user &#x3D; undefined;
+    try {
+      user &#x3D; await this.usersRepository.findOneBy({ id });
+    } catch (error) {
+      throw new RequestTimeoutException(
+        &#x27;Error occurred while retrieving user by ID&#x27;,
+        {
+          description: &#x27;Database connection error&#x27;,
+        },
+      );
+    }
+    /**
+     * Handle the user not exist
+     */
+    if (!user) {
+      throw new BadRequestException(&#x27;The user id does not exist&#x27;);
+    }
 
-  public findOnById(
-    id: string,
-  ): Array&lt;{ id: number; firstName: string; email: string }&gt; {
-    // Return a mock user with id, first name, and email.
-    return [
-      {
-        id: 1234,
-        firstName: &#x27;Alice&#x27;,
-        email: &#x27;alice@doe.com&#x27;,
-      },
-    ];
+    return user;
   }
 
   public async createUser(createUserDTO: CreateUserDto) {
-    // Check is user exists with same email
-    const existingUser &#x3D; await this.usersRepository.findOne({
-      where: {
-        email: createUserDTO.email,
-      },
-    });
+    let existingUser &#x3D; undefined;
+
+    try {
+      // Check is user exists with same email
+      await this.usersRepository.findOne({
+        where: {
+          email: createUserDTO.email,
+        },
+      });
+    } catch (error) {
+      // Might save the details of the exception
+      // Information witch is sensitive
+      throw new RequestTimeoutException(
+        &#x27;Unable to process your request at the moment please try later&#x27;,
+        {
+          description: &#x27;Erreur connecting to the database&#x27;,
+        },
+      );
+    }
+
     // Handle exception
+    if (existingUser) {
+      throw new BadRequestException(
+        &#x27;The user already exists, please check your email&#x27;,
+      );
+    }
+
     // Create a new user
     let newUser &#x3D; this.usersRepository.create(createUserDTO);
-    newUser &#x3D; await this.usersRepository.save(newUser);
+    try {
+      newUser &#x3D; await this.usersRepository.save(newUser);
+    } catch (error) {
+      throw new RequestTimeoutException(
+        &#x27;Unable to create a new user at this time&#x27;,
+        {
+          description: &#x27;Database error while saving user&#x27;,
+        },
+      );
+    }
     return newUser;
+  }
+
+  public async createMany(createUsersDTO: CreateUserDto[]) {
+    let newUsers: User[] &#x3D; [];
+
+    //Query runner
+    const queryRunner &#x3D; this.dataSource.createQueryRunner();
+
+    //Connect Query runner
+    await queryRunner.connect();
+
+    //Start Transation
+    await queryRunner.startTransaction();
+    try {
+      for (let user of createUsersDTO) {
+        let newUser &#x3D; queryRunner.manager.create(User, user);
+        let result &#x3D; await queryRunner.manager.save(newUser);
+        newUsers.push(result);
+      }
+      //If Successfull commit
+      await queryRunner.commitTransaction();
+    } catch (error) {
+      //If Unseccessful rollback
+      await queryRunner.rollbackTransaction();
+    } finally {
+      //Release connection
+      await queryRunner.release();
+    }
   }
 }
 </code></pre>

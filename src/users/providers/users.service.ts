@@ -1,10 +1,22 @@
-import { forwardRef, Inject, Injectable } from '@nestjs/common';
+import {
+  BadRequestException,
+  forwardRef,
+  Inject,
+  Injectable,
+  RequestTimeoutException,
+} from '@nestjs/common';
 import { GetUsersParamDto } from '../dtos/get-users-param.dto';
 import { AuthService } from 'src/auth/providers/auth.service';
-import { Repository } from 'typeorm';
+import { DataSource, Repository } from 'typeorm';
 import { User } from '../user.entity';
 import { InjectRepository } from '@nestjs/typeorm';
 import { CreateUserDto } from '../dtos/create-user.dto';
+import { ConfigService, ConfigType } from '@nestjs/config';
+import profileConfig from '../config/profile.config';
+import { UsersCreateManyProvider } from './users-create-many.provider';
+import { CreateManyUsersDto } from '../dtos/create-many-users.dto';
+import { CreateUserProvider } from './create-user.provider';
+import { FindOneUserByEmailProvider } from './find-one-user-by-email.provider';
 
 /**
  * Service responsible for handling business operations related to users.
@@ -27,7 +39,28 @@ export class UsersService {
      * Injecting usersRepository
      */
     @InjectRepository(User)
-    private usersRepository: Repository<User>,
+    private readonly usersRepository: Repository<User>,
+
+    /**
+     * Env
+     */
+    @Inject(profileConfig.KEY)
+    private readonly profileConfiguration: ConfigType<typeof profileConfig>,
+
+    /**
+     * Inject usersCreateManyProvider
+     */
+    private readonly usersCreateManyProvider: UsersCreateManyProvider,
+
+    /**
+     * Inject createUserProvider
+     */
+    private readonly createUserProvider: CreateUserProvider,
+
+    /**
+     * Inject findOneByEmailProvider
+     */
+    private readonly findOneUserByEmailProvider: FindOneUserByEmailProvider,
   ) {}
 
   /**
@@ -49,6 +82,9 @@ export class UsersService {
     const isAuth = this.authService.isAuth();
     console.log('user.service >>>', isAuth);
 
+    //test
+    console.log(this.profileConfiguration);
+
     // Return a mock list of users.
     return [
       {
@@ -69,20 +105,36 @@ export class UsersService {
    * @returns {Array<Object>} An array containing a user object with id, first name, and email.
    */
   public async findOnById(id: number) {
-    return await this.usersRepository.findOneBy({ id });
+    let user = undefined;
+    try {
+      user = await this.usersRepository.findOneBy({ id });
+    } catch (error) {
+      throw new RequestTimeoutException(
+        'Error occurred while retrieving user by ID',
+        {
+          description: 'Database connection error',
+        },
+      );
+    }
+    /**
+     * Handle the user not exist
+     */
+    if (!user) {
+      throw new BadRequestException('The user id does not exist');
+    }
+
+    return user;
   }
 
   public async createUser(createUserDTO: CreateUserDto) {
-    // Check is user exists with same email
-    const existingUser = await this.usersRepository.findOne({
-      where: {
-        email: createUserDTO.email,
-      },
-    });
-    // Handle exception
-    // Create a new user
-    let newUser = this.usersRepository.create(createUserDTO);
-    newUser = await this.usersRepository.save(newUser);
-    return newUser;
+    return this.createUserProvider.createUser(createUserDTO);
+  }
+
+  public async createMany(createManyUsersDTO: CreateManyUsersDto) {
+    return await this.usersCreateManyProvider.createMany(createManyUsersDTO);
+  }
+
+  public async findOneByEmail(email: string) {
+    return await this.findOneUserByEmailProvider.findOneByEmail(email);
   }
 }

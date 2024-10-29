@@ -158,6 +158,14 @@
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
                                     <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier">Public</span>
+                                <a href="#deletePost" >deletePost</a>
+                            </li>
+                            <li>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
+                                    <span class="modifier"></span>
                                     <span class="modifier">Public</span>
                                 <a href="#getPosts" >getPosts</a>
                             </li>
@@ -217,8 +225,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="44"
-                                    class="link-to-prism">src/posts/posts.controller.ts:44</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="54"
+                                    class="link-to-prism">src/posts/posts.controller.ts:54</a></div>
                         </td>
                     </tr>
 
@@ -281,12 +289,92 @@
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                         </div>
                             <div class="io-description">
                                 <p>The newly created post (this should eventually return the post from the service).</p>
 
+                            </div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <table class="table table-sm table-bordered">
+        <tbody>
+            <tr>
+                <td class="col-md-4">
+                    <a name="deletePost"></a>
+                    <span class="name">
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier"></span>
+                            <span class="modifier">Public</span>
+                        <span ><b>deletePost</b></span>
+                        <a href="#deletePost"><span class="icon ion-ios-link"></span></a>
+                    </span>
+                </td>
+            </tr>
+            <tr>
+                <td class="col-md-4">
+                        <span class="modifier-icon icon ion-ios-reset"></span>
+                    <code>deletePost(id: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank">number</a>)</code>
+                </td>
+            </tr>
+
+            <tr>
+                <td class="col-md-4">
+                    <b>Decorators : </b>
+                    <br />
+                    <code>@ApiOperation({summary: &#x27;Deletes an existing post&#x27;})<br />@ApiResponse({status: 200, description: &#x27;The post has been successfully deleted&#x27;})<br />@ApiQuery({name: &#x27;id&#x27;, type: &#x27;number&#x27;, required: true, description: &#x27;The id of entries you want to delete&#x27;, example: 10})<br />@Delete()<br /></code>
+                </td>
+            </tr>
+
+                    <tr>
+                        <td class="col-md-4">
+                            <div class="io-line">Defined in <a href="" data-line="90"
+                                    class="link-to-prism">src/posts/posts.controller.ts:90</a></div>
+                        </td>
+                    </tr>
+
+
+            <tr>
+                <td class="col-md-4">
+
+                            <div class="io-description">
+                                <b>Parameters :</b>
+                                
+                                <table class="params">
+                                    <thead>
+                                        <tr>
+                                            <td>Name</td>
+                                                <td>Type</td>
+                                            <td>Optional</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                                <td>id</td>
+                                            <td>
+                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/number" target="_blank" >number</a></code>
+                                            </td>
+
+                                            <td>
+                                                    No
+                                            </td>
+
+
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        <div class="io-description">
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
+
+                        </div>
+                            <div class="io-description">
+                                
                             </div>
                 </td>
             </tr>
@@ -310,7 +398,7 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>getPosts(userId: <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank">string</a>)</code>
+                    <code>getPosts()</code>
                 </td>
             </tr>
 
@@ -318,14 +406,14 @@
                 <td class="col-md-4">
                     <b>Decorators : </b>
                     <br />
-                    <code>@Get(&#x27;/:userId?&#x27;)<br />@ApiOperation({summary: &#x27;Obtains all the posts&#x27;})<br />@ApiResponse({status: 200, description: &#x27;The post has been successfully found&#x27;})<br /></code>
+                    <code>@Get()<br />@ApiOperation({summary: &#x27;Obtains all the posts&#x27;})<br />@ApiResponse({status: 200, description: &#x27;The post has been successfully found&#x27;})<br /></code>
                 </td>
             </tr>
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="27"
-                                    class="link-to-prism">src/posts/posts.controller.ts:27</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="37"
+                                    class="link-to-prism">src/posts/posts.controller.ts:37</a></div>
                         </td>
                     </tr>
 
@@ -335,40 +423,6 @@
                         <div class="io-description"><p>Retrieves all posts, optionally filtered by user ID.</p>
 </div>
 
-                            <div class="io-description">
-                                <b>Parameters :</b>
-                                
-                                <table class="params">
-                                    <thead>
-                                        <tr>
-                                            <td>Name</td>
-                                                <td>Type</td>
-                                            <td>Optional</td>
-                                                <td>Description</td>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                                <td>userId</td>
-                                            <td>
-                                                            <code><a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/string" target="_blank" >string</a></code>
-                                            </td>
-
-                                            <td>
-                                                    No
-                                            </td>
-
-
-                                            <td>
-                                                    <ul>
-<li>The ID of the user whose posts are to be retrieved (optional).</li>
-</ul>
-
-                                            </td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
                         <div class="io-description">
                             <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
@@ -399,7 +453,7 @@
             <tr>
                 <td class="col-md-4">
                         <span class="modifier-icon icon ion-ios-reset"></span>
-                    <code>updatePost(patchPostsDto: <a href="../classes/PatchPostDto.html" target="_self">PatchPostDto</a>)</code>
+                    <code>updatePost(patchPostDto: <a href="../classes/PatchPostDto.html" target="_self">PatchPostDto</a>)</code>
                 </td>
             </tr>
 
@@ -413,8 +467,8 @@
 
                     <tr>
                         <td class="col-md-4">
-                            <div class="io-line">Defined in <a href="" data-line="64"
-                                    class="link-to-prism">src/posts/posts.controller.ts:64</a></div>
+                            <div class="io-line">Defined in <a href="" data-line="73"
+                                    class="link-to-prism">src/posts/posts.controller.ts:73</a></div>
                         </td>
                     </tr>
 
@@ -433,12 +487,11 @@
                                             <td>Name</td>
                                                 <td>Type</td>
                                             <td>Optional</td>
-                                                <td>Description</td>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <tr>
-                                                <td>patchPostsDto</td>
+                                                <td>patchPostDto</td>
                                             <td>
                                                             <code><a href="../classes/PatchPostDto.html" target="_self" >PatchPostDto</a></code>
                                             </td>
@@ -448,18 +501,12 @@
                                             </td>
 
 
-                                            <td>
-                                                    <ul>
-<li>The data transfer object containing updated post details.</li>
-</ul>
-
-                                            </td>
                                         </tr>
                                     </tbody>
                                 </table>
                             </div>
                         <div class="io-description">
-                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >void</a></code>
+                            <b>Returns : </b>        <code><a href="https://www.typescriptlang.org/docs/handbook/basic-types.html" target="_blank" >any</a></code>
 
                         </div>
                             <div class="io-description">
@@ -474,9 +521,19 @@
 
 
     <div class="tab-pane fade  tab-source-code" id="source">
-        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import { Body, Controller, Get, Param, Patch, Post } from &#x27;@nestjs/common&#x27;;
+        <pre class="line-numbers compodoc-sourcecode"><code class="language-typescript">import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  Param,
+  ParseIntPipe,
+  Patch,
+  Post,
+  Query,
+} from &#x27;@nestjs/common&#x27;;
 import { PostsService } from &#x27;./providers/posts.service&#x27;;
-import { ApiOperation, ApiResponse, ApiTags } from &#x27;@nestjs/swagger&#x27;;
+import { ApiOperation, ApiQuery, ApiResponse, ApiTags } from &#x27;@nestjs/swagger&#x27;;
 import { CreatePostDto } from &#x27;./dtos/create-post.dto&#x27;;
 import { PatchPostDto } from &#x27;./dtos/patch-post.dto&#x27;;
 
@@ -494,14 +551,14 @@ export class PostsController {
    * @param userId - The ID of the user whose posts are to be retrieved (optional).
    * @returns An array of posts for the specified user or all posts if no user ID is provided.
    */
-  @Get(&#x27;/:userId?&#x27;)
+  @Get()
   @ApiOperation({ summary: &#x27;Obtains all the posts&#x27; })
   @ApiResponse({
     status: 200,
     description: &#x27;The post has been successfully found&#x27;,
   })
-  public getPosts(@Param(&#x27;userId&#x27;) userId: string) {
-    return this.postsService.findAll(userId);
+  public getPosts() {
+    return this.postsService.findAll();
   }
 
   /**
@@ -521,8 +578,7 @@ export class PostsController {
     @Param(&#x27;userId&#x27;) userId: string,
     @Body() createPostDto: CreatePostDto,
   ) {
-    // This would normally return the created post
-    console.log(createPostDto);
+    return this.postsService.create(createPostDto);
   }
 
   /**
@@ -537,8 +593,25 @@ export class PostsController {
     status: 200,
     description: &#x27;The post has been successfully updated&#x27;,
   })
-  public updatePost(@Body() patchPostsDto: PatchPostDto) {
-    console.log(patchPostsDto);
+  public updatePost(@Body() patchPostDto: PatchPostDto) {
+    return this.postsService.update(patchPostDto);
+  }
+
+  @ApiOperation({ summary: &#x27;Deletes an existing post&#x27; })
+  @ApiResponse({
+    status: 200,
+    description: &#x27;The post has been successfully deleted&#x27;,
+  })
+  @ApiQuery({
+    name: &#x27;id&#x27;,
+    type: &#x27;number&#x27;,
+    required: true,
+    description: &#x27;The id of entries you want to delete&#x27;,
+    example: 10,
+  })
+  @Delete()
+  public deletePost(@Query(&#x27;id&#x27;, ParseIntPipe) id: number) {
+    return this.postsService.delete(id);
   }
 }
 </code></pre>
