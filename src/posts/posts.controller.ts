@@ -14,6 +14,8 @@ import { ApiOperation, ApiQuery, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CreatePostDto } from './dtos/create-post.dto';
 import { PatchPostDto } from './dtos/patch-post.dto';
 import { GetPostsDto } from './dtos/get-posts.dto';
+import { ActiveUser } from 'src/auth/decorators/active-user.decorator';
+import { ActiveUserData } from 'src/auth/interfaces/active-user-data.interface';
 
 /**
  * PostsController manages operations related to posts.
@@ -47,21 +49,20 @@ export class PostsController {
   /**
    * Creates a new post for a specific user.
    *
-   * @param userId - The ID of the user for whom the post is created.
    * @param createPostDto - The data transfer object containing post details.
    * @returns The newly created post (this should eventually return the post from the service).
    */
-  @Post('/:userId')
   @ApiOperation({ summary: 'Creates a new post for a user' })
   @ApiResponse({
     status: 201,
     description: 'The post has been successfully created.',
   })
+  @Post()
   public createPost(
-    @Param('userId') userId: string,
     @Body() createPostDto: CreatePostDto,
+    @ActiveUser() user: ActiveUserData,
   ) {
-    return this.postsService.create(createPostDto);
+    return this.postsService.create(createPostDto, user);
   }
 
   /**

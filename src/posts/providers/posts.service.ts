@@ -17,6 +17,9 @@ import { PatchPostDto } from '../dtos/patch-post.dto';
 import { GetPostsDto } from '../dtos/get-posts.dto';
 import { PaginationProvider } from 'src/common/pagination/providers/pagination.provider';
 import { Paginated } from 'src/common/pagination/interfaces/paginated.interface';
+import { ActiveUserData } from 'src/auth/interfaces/active-user-data.interface';
+import { ActiveUser } from 'src/auth/decorators/active-user.decorator';
+import { CreatePostProvider } from './create-post.provider';
 
 /**
  * Service for handling posts-related operations.
@@ -24,11 +27,6 @@ import { Paginated } from 'src/common/pagination/interfaces/paginated.interface'
 @Injectable()
 export class PostsService {
   constructor(
-    /**
-     * Injecting Users Services
-     */
-    private readonly usersService: UsersService,
-
     /**
      * Injecting the TagsServices
      */
@@ -41,49 +39,21 @@ export class PostsService {
     private postsRepository: Repository<Post>,
 
     /**
-     * Inject metaOptionsRepository
-     */
-    @InjectRepository(MetaOption)
-    private metaOptionsRepository: Repository<MetaOption>,
-
-    /**
      * Injecting paginationProvider
      */
     private readonly paginationProvider: PaginationProvider,
+
+    /**
+     * Inject CreatePost Provider
+     */
+    private readonly createPostProvider: CreatePostProvider,
   ) {}
 
   /**
    * Creating new posts
    */
-  public async create(@Body() createPostDto: CreatePostDto) {
-    // Find the author first
-    let author = await this.usersService.findOnById(createPostDto.authorId);
-    // Find tags
-    let tags = await this.tagsService.findMultipleTags(createPostDto.tags);
-
-    //Create metaOptions a revoir pour la cascade
-    let metaOptions = createPostDto.metaOptions
-      ? this.metaOptionsRepository.create(createPostDto.metaOptions)
-      : null;
-
-    if (metaOptions) {
-      await this.metaOptionsRepository.save(metaOptions);
-    }
-
-    //Create post
-    let post = this.postsRepository.create({
-      ...createPostDto,
-      author: author,
-      tags: tags,
-    });
-
-    // Add metaOptions to the post
-    if (metaOptions) {
-      post.metaOption = metaOptions;
-    }
-
-    //return the post
-    return await this.postsRepository.save(post);
+  public async create(createPostDto: CreatePostDto, user: ActiveUserData) {
+    return await this.createPostProvider.create(createPostDto, user);
   }
 
   /**

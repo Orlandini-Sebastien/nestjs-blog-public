@@ -3,6 +3,10 @@ import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import * as dotenv from 'dotenv';
+import { DataResponseInterceptor } from './common/interceptors/data-response/data-response.interceptor';
+
+import { config } from 'aws-sdk';
+import { ConfigService } from '@nestjs/config';
 
 /**
  * Main function to bootstrap the NestJS application.
@@ -25,7 +29,7 @@ async function bootstrap() {
       forbidNonWhitelisted: true,
       transform: true,
       transformOptions: {
-        enableImplicitConversion: true, // converti implicitement les type décorator 
+        enableImplicitConversion: true, // converti implicitement les type décorator
       },
     }),
   );
@@ -35,7 +39,7 @@ async function bootstrap() {
    * Sets up metadata including the API title, description, terms of service, and license.
    * The documentation is accessible at the /api endpoint.
    */
-  const config = new DocumentBuilder()
+  const swaggerConfig = new DocumentBuilder()
     .setTitle('NestJs - Blog app API') // API title for Swagger
     .setDescription('Use the base API URL as http://localhost:3000') // API description
     .setTermsOfService('http://localhost:3000/terms-of-service') // Terms of Service URL
@@ -48,8 +52,38 @@ async function bootstrap() {
     .build();
 
   // Create Swagger document based on config and set up at /api endpoint
-  const document = SwaggerModule.createDocument(app, config);
+  const document = SwaggerModule.createDocument(app, swaggerConfig);
   SwaggerModule.setup('api', app, document);
+
+  /*
+   * Setup AWS SDK used for uploadingg files to AWS S3
+   * */
+  const configService = app.get(ConfigService);
+  config.update({
+    credentials: {
+      accessKeyId: configService.get<string>('appConfig.awsAccessKeyId'),
+      secretAccessKey: configService.get<string>(
+        'appConfig.awsSecretAccessKey',
+      ),
+    },
+    region: configService.get<string>('appConfig.awsRegion'),
+  });
+
+  // Configuration CORS détaillée
+  app.enableCors({
+    origin: ['http://localhost:3500'], // Liste précise des origines autorisées
+    methods: ['GET', 'POST', 'OPTIONS', 'PUT', 'DELETE'],
+    credentials: true,
+    allowedHeaders: [
+      'Content-Type',
+      'Authorization',
+      'X-Requested-With',
+      'Accept',
+      'Origin',
+    ],
+    preflightContinue: false,
+    optionsSuccessStatus: 200,
+  });
 
   // Start the application, listening on the specified port or default to 3000
   await app.listen(process.env.PORT ?? 3000);

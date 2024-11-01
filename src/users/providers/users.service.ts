@@ -17,6 +17,9 @@ import { UsersCreateManyProvider } from './users-create-many.provider';
 import { CreateManyUsersDto } from '../dtos/create-many-users.dto';
 import { CreateUserProvider } from './create-user.provider';
 import { FindOneUserByEmailProvider } from './find-one-user-by-email.provider';
+import { FindOneByGoogleIdProvider } from './find-one-by-google-id.provider';
+import { CreateGoogleUserProvider } from './create-google-user.provider';
+import { GoogleUser } from '../interfaces/google-users.interface';
 
 /**
  * Service responsible for handling business operations related to users.
@@ -61,6 +64,15 @@ export class UsersService {
      * Inject findOneByEmailProvider
      */
     private readonly findOneUserByEmailProvider: FindOneUserByEmailProvider,
+    /**
+     * Inject findOneByGoogleIdProvider
+     */
+    private readonly findOneByGoogleIdProvider: FindOneByGoogleIdProvider,
+
+    /**
+     * Inject createGoogleUserProvider
+     */
+    private readonly createGoogleUserProvider: CreateGoogleUserProvider,
   ) {}
 
   /**
@@ -79,8 +91,8 @@ export class UsersService {
     page: number,
   ): Array<{ firstName: string; email: string }> {
     // Check if the user is authenticated using the authentication service.
-    const isAuth = this.authService.isAuth();
-    console.log('user.service >>>', isAuth);
+    // const isAuth = this.authService.isAuth();
+    // console.log('user.service >>>', isAuth);
 
     //test
     console.log(this.profileConfiguration);
@@ -127,7 +139,7 @@ export class UsersService {
   }
 
   public async createUser(createUserDTO: CreateUserDto) {
-    return this.createUserProvider.createUser(createUserDTO);
+    return await this.createUserProvider.createUser(createUserDTO);
   }
 
   public async createMany(createManyUsersDTO: CreateManyUsersDto) {
@@ -136,5 +148,13 @@ export class UsersService {
 
   public async findOneByEmail(email: string) {
     return await this.findOneUserByEmailProvider.findOneByEmail(email);
+  }
+
+  public async findOndByGoogleId(googleId: string) {
+    return await this.findOneByGoogleIdProvider.findOneByGoogleId(googleId);
+  }
+
+  public async createGooglgeUser(googleUser: GoogleUser) {
+    return await this.createGoogleUserProvider.createGoogleUser(googleUser);
   }
 }

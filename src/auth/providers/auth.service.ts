@@ -2,6 +2,8 @@ import { forwardRef, Inject, Injectable } from '@nestjs/common';
 import { UsersService } from 'src/users/providers/users.service';
 import { SignInDto } from '../dtos/signin.dto';
 import { SignInProvider } from './sign-in.provider';
+import { RefreshTokenDto } from '../dtos/refresh-token.dto';
+import { RefreshTokensProvider } from './refresh-tokens.provider';
 
 /**
  * AuthService handles authentication logic, including user login and authentication checks.
@@ -19,6 +21,11 @@ export class AuthService {
      * Inject signInProvider
      */
     private readonly signInProvider: SignInProvider,
+
+    /**
+     * Inject refreshTokenProvider
+     */
+    private readonly refreshTokenProvider: RefreshTokensProvider,
   ) {}
 
   /**
@@ -34,12 +41,7 @@ export class AuthService {
     return await this.signInProvider.signIn(signInDto);
   }
 
-  /**
-   * Checks if the user is authenticated.
-   *
-   * @returns A boolean indicating whether the user is authenticated.
-   */
-  public isAuth() {
-    return true;
+  public async refreshToken(refreshTokenDto: RefreshTokenDto) {
+    return await this.refreshTokenProvider.refreshToken(refreshTokenDto);
   }
 }

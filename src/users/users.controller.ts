@@ -8,6 +8,10 @@ import {
   ParseIntPipe,
   DefaultValuePipe,
   Patch,
+  UseGuards,
+  SetMetadata,
+  UseInterceptors,
+  ClassSerializerInterceptor,
 } from '@nestjs/common';
 import { CreateUserDto } from './dtos/create-user.dto';
 import { GetUsersParamDto } from './dtos/get-users-param.dto';
@@ -15,6 +19,9 @@ import { PatchUserDto } from './dtos/patch-users.dto';
 import { UsersService } from './providers/users.service';
 import { ApiOperation, ApiQuery, ApiResponse, ApiTags } from '@nestjs/swagger';
 import { CreateManyUsersDto } from './dtos/create-many-users.dto';
+import { AccessTokenGuard } from 'src/auth/guards/access-token/access-token.guard';
+import { Auth } from 'src/auth/decorators/auth.decorator';
+import { AuthType } from 'src/auth/enums/auth-type.enum';
 
 @Controller('users')
 @ApiTags('users')
@@ -54,6 +61,9 @@ export class UsersController {
   }
 
   @Post()
+  // @SetMetadata('authType','None')
+  @Auth(AuthType.None) // Donne la même chose que la ligne au dessus (custome décorateur)
+  @UseInterceptors(ClassSerializerInterceptor)
   @ApiOperation({
     summary: 'Creates a new user',
   })
@@ -63,13 +73,10 @@ export class UsersController {
     type: CreateUserDto, // Assuming it returns the created user object
   })
   public createUsers(@Body() createUserDto: CreateUserDto) {
-    console.log(
-      'users controller POST / createUserDTO is not a CreateUserDTO type >>>',
-      createUserDto instanceof CreateUserDto,
-    );
     return this.usersService.createUser(createUserDto);
   }
 
+  // @UseGuards(AccessTokenGuard)
   @Post('create-many')
   @ApiOperation({
     summary: 'Creates many users',
