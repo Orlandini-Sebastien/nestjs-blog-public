@@ -93,5 +93,5 @@ export class User {
    * One author can have multiple post
    */
   @OneToMany(() => Post, (post) => post.author)
-  posts: Post[];
+  posts?: Post[];
 }

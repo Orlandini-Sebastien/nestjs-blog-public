@@ -8,10 +8,6 @@ import {
 import { SignInDto } from '../dtos/signin.dto';
 import { UsersService } from 'src/users/providers/users.service';
 import { HashingProvider } from './hashing.provider';
-import { JwtService } from '@nestjs/jwt';
-import { ConfigType } from '@nestjs/config';
-import jwtConfig from '../config/jwt.config';
-import { ActiveUserData } from '../interfaces/active-user-data.interface';
 import { GenerateTokensProvider } from './generate-tokens.provider';
 
 @Injectable()
