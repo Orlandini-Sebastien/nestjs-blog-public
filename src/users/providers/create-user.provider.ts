@@ -10,7 +10,7 @@ import { InjectRepository } from '@nestjs/typeorm';
 import { User } from '../user.entity';
 import { Repository } from 'typeorm';
 import { HashingProvider } from 'src/auth/providers/hashing.provider';
-import { MailService } from 'src/mail/providers/mail.service';
+// import { MailService } from 'src/mail/providers/mail.service';
 
 @Injectable()
 export class CreateUserProvider {
@@ -27,10 +27,10 @@ export class CreateUserProvider {
     @Inject(forwardRef(() => HashingProvider))
     private readonly hashingProvider: HashingProvider,
 
-    /**
-     * Inject mailService
-     */
-    private readonly mailService: MailService,
+    // /**
+    //  * Inject mailService
+    //  */
+    // private readonly mailService: MailService,
   ) {}
 
   public async createUser(createUserDTO: CreateUserDto) {
